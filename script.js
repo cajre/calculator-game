@@ -10,7 +10,7 @@ function generateProblem() {
 // Function to check the answer
 function checkAnswer() {
     var problem = document.getElementById("problem").textContent;
-    var answer = document.getElementById("answer").value;
+    var answer = parseFloat(document.getElementById("answer").value);
     var resultElement = document.getElementById("result");
     var nums = problem.split(" ");
     var num1 = parseInt(nums[0]);
@@ -29,13 +29,21 @@ function checkAnswer() {
             correctAnswer = num1 * num2;
             break;
         case '/':
-            correctAnswer = num1 / num2;
+            // Round to 2 decimal places to avoid repeating decimals issue
+            correctAnswer = Math.round((num1 / num2) * 100) / 100;
             break;
     }
 
-    if (parseInt(answer) === correctAnswer) {
+    if (answer === correctAnswer) {
         resultElement.textContent = "Correct! The answer is " + correctAnswer;
     } else {
         resultElement.textContent = "Incorrect. Try again!";
     }
+}
+
+// Function to set a custom problem
+function setCustomProblem() {
+    var customProblem = document.getElementById("customProblem").value;
+    var problemElement = document.getElementById("problem");
+    problemElement.textContent = customProblem;
 }
