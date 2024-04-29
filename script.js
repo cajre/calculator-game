@@ -32,5 +32,3 @@ function generateProblem() {
     var problemElement = document.getElementById("problem");
     problemElement.textContent = num1 + " " + operator + " " + num2;
 }
-
-
