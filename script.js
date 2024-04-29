@@ -2,7 +2,7 @@
 function generateProblem() {
     var num1 = Math.floor(Math.random() * 10) + 1;
     var num2 = Math.floor(Math.random() * 10) + 1;
-    var operator = ['+', '-', '*', '/'][Math.floor(Math.random() * 4)];
+    var operator = ['+', '-', '*'][Math.floor(Math.random() * 3)]; // Removed division
     var problemElement = document.getElementById("problem");
     problemElement.textContent = num1 + " " + operator + " " + num2;
 }
@@ -27,10 +27,6 @@ function checkAnswer() {
             break;
         case '*':
             correctAnswer = num1 * num2;
-            break;
-        case '/':
-            // Round to 2 decimal places to avoid repeating decimals issue
-            correctAnswer = Math.round((num1 / num2) * 100) / 100;
             break;
     }
 
