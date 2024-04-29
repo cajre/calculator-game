@@ -9,6 +9,14 @@
 <body>
     <div class="container">
         <h1>Math Challenge</h1>
+        <div>
+            <label for="mode">Select mode:</label>
+            <select id="mode" onchange="changeMode()">
+                <option value="easy">Easy</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
         <p>Enter the answer to the following math problem:</p>
         <div id="problem"></div>
         <input type="number" id="answer" placeholder="Your Answer">
